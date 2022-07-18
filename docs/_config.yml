@@ -13,4 +13,4 @@ include:
   - ISSUE_TEMPLATE.md
   - PULL_REQUEST_TEMPLATE.md
 title: C++ Templates
-theme: jekyll-theme-architect
+theme: jekyll-theme-leap-day
