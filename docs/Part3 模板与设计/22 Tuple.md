@@ -107,7 +107,7 @@ Tuple(const Tuple<VHead, VTail...>& other)
 Tuple<int> t2(t); // 错误：t 是 Tuple<int>，无法转为 int
 ```
 
-* 原因在于，接受一系列值参数的构造模板比接受一个tuple参数的构造模板更优，为此必须使用 [std::enable_if](https://en.cppreference.com/w/cpp/types/enable_if)，当尾部没有期望的长度时禁用成员函数模板。最终上述两个构造函数实现如下
+* 原因在于，接受一系列值参数的构造模板比接受一个tuple参数的构造模板更优，为此必须使用 [std::enable_if](https://zh.cppreference.com/w/cpp/types/enable_if)，当尾部没有期望的长度时禁用成员函数模板。最终上述两个构造函数实现如下
 
 ```cpp
 template<typename VHead, typename... VTail,
@@ -121,7 +121,7 @@ Tuple(const Tuple<VHead, VTail...>& other)
 : head(other.getHead()), tail(other.getTail()) {}
 ```
 
-* 接着实现 makeTuple，使用完美转发结合 [std::decay](https://en.cppreference.com/w/cpp/types/decay) 来转换字符串字面值和原始数组为指针，并移除 cv 和引用限定符
+* 接着实现 makeTuple，使用完美转发结合 [std::decay](https://zh.cppreference.com/w/cpp/types/decay) 来转换字符串字面值和原始数组为指针，并移除 cv 和引用限定符
 
 ```cpp
 template<typename... Types>
@@ -393,7 +393,7 @@ auto reversed = makeTuple(get<4>(copies), get<3>(copies),
   get<2>(copies), get<1>(copies), get<0>(copies));
 ```
 
-* 这个程序将生成期望的输出，每个 tuple 元素只拷贝一次（实际测试是 2 次，get 和 makeTuple 各一次），这种方法的思路是使用索引表。C++14 提供了 [std::integer_sequence](https://en.cppreference.com/w/cpp/utility/integer_sequence) 用于表示索引表，这里将使用以前提过的 Valuelist 表示索引表。reverse 对应的索引表为
+* 这个程序将生成期望的输出，每个 tuple 元素只拷贝一次（实际测试是 2 次，get 和 makeTuple 各一次），这种方法的思路是使用索引表。C++14 提供了 [std::integer_sequence](https://zh.cppreference.com/w/cpp/utility/integer_sequence) 用于表示索引表，这里将使用以前提过的 Valuelist 表示索引表。reverse 对应的索引表为
 
 ```cpp
 Valuelist<unsigned, 4, 3, 2, 1, 0>
@@ -584,7 +584,7 @@ Tuple<std::string, const char*, int, char> t("Pi", "is roughly", 3, '!');
 apply(print, t); // Pi is roughly 3 ! 
 ```
 
-* C++17提供了 [std::apply](https://en.cppreference.com/w/cpp/utility/apply)
+* C++17提供了 [std::apply](https://zh.cppreference.com/w/cpp/utility/apply)
 
 ## 优化
 

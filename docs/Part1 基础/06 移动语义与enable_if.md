@@ -168,7 +168,7 @@ Person(Person&);
 
 ## 使用enable_if禁用成员模板
 
-* C++11 提供的 [std::enable_if](https://en.cppreference.com/w/cpp/types/enable_if) 允许在某个编译期条件下忽略函数模板
+* C++11 提供的 [std::enable_if](https://zh.cppreference.com/w/cpp/types/enable_if) 允许在某个编译期条件下忽略函数模板
 
 ```cpp
 #include <type_traits>
@@ -184,7 +184,7 @@ f() {}
 void f() {}
 ```
 
-* [std::enable_if](https://en.cppreference.com/w/cpp/types/enable_if) 是一个 [type traits](https://en.cppreference.com/w/cpp/header/type_traits)，编译期表达式作为首个模板实参传递。若表达式为 false，则 `enable_if::type` 未定义，由于 SFINAE，这个带有 enable_if 的函数模板将被忽略。若表达式为 true，`enable_if::type` 产生一个类型，若有第二个实参，则类型为第二个实参类型，否则为 void
+* [std::enable_if](https://zh.cppreference.com/w/cpp/types/enable_if) 是一个 [type traits](https://zh.cppreference.com/w/cpp/header/type_traits)，编译期表达式作为首个模板实参传递。若表达式为 false，则 `enable_if::type` 未定义，由于 SFINAE，这个带有 enable_if 的函数模板将被忽略。若表达式为 true，`enable_if::type` 产生一个类型，若有第二个实参，则类型为第二个实参类型，否则为 void
 
 ```cpp
 template<typename T>
@@ -194,7 +194,7 @@ std::enable_if<(sizeof(T) > 4), T>::type f()
 }
 ```
 
-* C++14 中为所有 [type traits](https://en.cppreference.com/w/cpp/header/type_traits) 提供了一个别名模板，以省略后缀 `::type`，`enable_if::type` 在C++14 中可以简写为 `enable_if_t`
+* C++14 中为所有 [type traits](https://zh.cppreference.com/w/cpp/header/type_traits) 提供了一个别名模板，以省略后缀 `::type`，`enable_if::type` 在C++14 中可以简写为 `enable_if_t`
 
 ```cpp
 template<typename T>
@@ -228,7 +228,7 @@ void f() {}
 
 ## 使用 enable_if 解决完美转发构造函数的优先匹配问题
 
-* 现在来解决之前的构造函数模板的问题，当实参 STR 有正确的类型（[std::string](https://en.cppreference.com/w/cpp/string/basic_string) 或可以转换为 [std::string](https://en.cppreference.com/w/cpp/string/basic_string) 的类型）时禁用完美转发构造函数。为此，需要使用 [std::is_convertible](https://en.cppreference.com/w/cpp/types/is_convertible)
+* 现在来解决之前的构造函数模板的问题，当实参 STR 有正确的类型（[std::string](https://zh.cppreference.com/w/cpp/string/basic_string) 或可以转换为 [std::string](https://zh.cppreference.com/w/cpp/string/basic_string) 的类型）时禁用完美转发构造函数。为此，需要使用 [std::is_convertible](https://zh.cppreference.com/w/cpp/types/is_convertible)
 
 ```cpp
 template<typename STR,
@@ -236,7 +236,7 @@ template<typename STR,
 explicit Person(STR&& n) : name(std::forward<STR>(n)) {}
 ```
 
-* 如果 STR 不能转换为 [std::string](https://en.cppreference.com/w/cpp/string/basic_string)，则模板将被忽略，否则整个声明扩展为
+* 如果 STR 不能转换为 [std::string](https://zh.cppreference.com/w/cpp/string/basic_string)，则模板将被忽略，否则整个声明扩展为
 
 ```cpp
 template<typename STR, typename = void>
@@ -273,7 +273,7 @@ int main()
 }
 ```
 
-* 也可以用 [std::is_constructible](https://en.cppreference.com/w/cpp/types/is_constructible) 替代 [std::is_convertible](https://en.cppreference.com/w/cpp/types/is_convertible)，但要注意 [std::is_convertible](https://en.cppreference.com/w/cpp/types/is_convertible) 判断类型可以隐式转换，而 [std::is_constructible](https://en.cppreference.com/w/cpp/types/is_constructible) 判断的是显式转换，实参顺序相反
+* 也可以用 [std::is_constructible](https://zh.cppreference.com/w/cpp/types/is_constructible) 替代 [std::is_convertible](https://zh.cppreference.com/w/cpp/types/is_convertible)，但要注意 [std::is_convertible](https://zh.cppreference.com/w/cpp/types/is_convertible) 判断类型可以隐式转换，而 [std::is_constructible](https://zh.cppreference.com/w/cpp/types/is_constructible) 判断的是显式转换，实参顺序相反
 
 ```cpp
 template<typename T>

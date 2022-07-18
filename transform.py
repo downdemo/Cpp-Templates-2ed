@@ -13,12 +13,17 @@ description: {description}
 """
 
 
-def deal_str(s: str) -> str:
+def deal_str_github(s: str) -> str:
     return (
-        s.replace("https://github.com/downdemo/Cpp-Templates-2ed/blob/master/", "")
+        deal_str_cpprefer(s)
+        .replace("https://github.com/downdemo/Cpp-Templates-2ed/blob/master/", "")
         .replace("content/", "")
         .replace(".md)", ".html)")
     )
+
+
+def deal_str_cpprefer(s: str) -> str:
+    return s.replace("https://en.cppreference.com", "https://zh.cppreference.com")
 
 
 if not os.path.exists("docs"):
@@ -27,7 +32,7 @@ if not os.path.exists("docs"):
 with open("README.md", "r", encoding="utf-8") as i:
     with open("docs/index.md", "w", encoding="utf-8") as o:
         for line in i.readlines():
-            o.write(deal_str(line))
+            o.write(deal_str_github(line))
 
 for dirname in os.listdir("content"):
     dir_path_o = f"docs/{dirname}"
@@ -59,9 +64,10 @@ for dirname in os.listdir("content"):
                     )  # 添加上一章链接
                 else:
                     o.write(f"**[Home](../../index.html)**")  # 添加目录链接
-                    
+
                 o.write("\n")
-                o.writelines(i.readlines()) #复制正文
+                for line in i.readlines():  # 复制正文
+                    o.write(deal_str_cpprefer(line))
                 o.write("\n")
 
                 if file_next is not None:

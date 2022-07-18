@@ -7,7 +7,7 @@ description: 模板与设计-Typelist
 **[Back: 20 元编程](20%20%E5%85%83%E7%BC%96%E7%A8%8B.html)**    
 ## Typelist 解析
 
-* Typelist 是类型元编程的核心数据结构，不同于大多数运行期数据结构，Typelist 不允许改变。比如添加一个元素到 [std::list](https://en.cppreference.com/w/cpp/container/list)会改变其本身，而添加一个元素到 Typelist 则是创建一个新的 Typelist
+* Typelist 是类型元编程的核心数据结构，不同于大多数运行期数据结构，Typelist 不允许改变。比如添加一个元素到 [std::list](https://zh.cppreference.com/w/cpp/container/list)会改变其本身，而添加一个元素到 Typelist 则是创建一个新的 Typelist
 * 一个 Typelist 通常实现为一个类模板特化
 
 ```cpp
@@ -124,7 +124,7 @@ FrontT<Typelist<long>>
 
 ### 查找最佳匹配
 
-* 下面有几次要用到 IfThenElseT 模板，也可以使用 [std::conditional](https://en.cppreference.com/w/cpp/types/conditional)
+* 下面有几次要用到 IfThenElseT 模板，也可以使用 [std::conditional](https://zh.cppreference.com/w/cpp/types/conditional)
 
 ```cpp
 template<bool COND, typename TrueType, typename FalseType>

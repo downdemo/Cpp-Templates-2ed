@@ -494,7 +494,7 @@ Stack<T, Cont>& Stack<T, Cont>::operator=(const Stack<T2, Cont2>& rhs)
 }
 ```
 
-* 如果使用这个实现，可以利用成员函数在被调用时才会被实例化的特性，来禁用赋值运算符。使用一个 [std::vector](https://en.cppreference.com/w/cpp/container/vector) 作为内部容器，因为赋值运算符中使用了 emplace_front，而 [std::vector](https://en.cppreference.com/w/cpp/container/vector) 没有此成员函数，只要不使用赋值运算符，程序就能正常运行
+* 如果使用这个实现，可以利用成员函数在被调用时才会被实例化的特性，来禁用赋值运算符。使用一个 [std::vector](https://zh.cppreference.com/w/cpp/container/vector) 作为内部容器，因为赋值运算符中使用了 emplace_front，而 [std::vector](https://zh.cppreference.com/w/cpp/container/vector) 没有此成员函数，只要不使用赋值运算符，程序就能正常运行
 
 ```cpp
 Stack<int, std::vector<int>> s;
@@ -686,7 +686,7 @@ isSigned<char>
 std::numeric_limits<char>::is_signed
 ```
 
-* C++17 开始，标准库用变量模板简写了生成值的 [type traits](https://en.cppreference.com/w/cpp/header/type_traits)
+* C++17 开始，标准库用变量模板简写了生成值的 [type traits](https://zh.cppreference.com/w/cpp/header/type_traits)
 
 ```cpp
 namespace std {

@@ -257,7 +257,7 @@ auto accum(Iter beg, Iter end) {
 }
 ```
 
-* [std::iterator_traits](https://en.cppreference.com/w/cpp/iterator/iterator_traits) 封装了迭代器的相关属性
+* [std::iterator_traits](https://zh.cppreference.com/w/cpp/iterator/iterator_traits) 封装了迭代器的相关属性
 
 ```cpp
 namespace std {
@@ -363,7 +363,7 @@ template <typename T>
 using RemoveReference = typename RemoveReferenceT<T>::Type;
 ```
 
-* 标准库提供了对应的 [std::remove_reference](https://en.cppreference.com/w/cpp/types/remove_reference)
+* 标准库提供了对应的 [std::remove_reference](https://zh.cppreference.com/w/cpp/types/remove_reference)
 
 ### 3.2.2 添加引用
 
@@ -420,7 +420,7 @@ struct AddLValueReferenceT<const volatile void> {
 };
 ```
 
-* 标准库提供了对应的 [std::add_lvalue_reference](https://en.cppreference.com/w/cpp/types/add_reference) 和 [std::add_rvalue_reference](https://en.cppreference.com/w/cpp/types/add_reference)，标准模板包含了 void 类型的特化
+* 标准库提供了对应的 [std::add_lvalue_reference](https://zh.cppreference.com/w/cpp/types/add_reference) 和 [std::add_rvalue_reference](https://zh.cppreference.com/w/cpp/types/add_reference)，标准模板包含了 void 类型的特化
 
 ### 3.2.3 移除限定符
 
@@ -469,7 +469,7 @@ template <typename T>
 using RemoveCV = RemoveConst<RemoveVolatile<T>>;
 ```
 
-* 标准库提供了对应的 [std::remove_volatile，std::remove_const 和 std::remove_cv](https://en.cppreference.com/w/cpp/types/remove_cv)
+* 标准库提供了对应的 [std::remove_volatile，std::remove_const 和 std::remove_cv](https://zh.cppreference.com/w/cpp/types/remove_cv)
 
 ### 3.2.4 Decay
 
@@ -580,7 +580,7 @@ int main() {
 }
 ```
 
-* 标准库提供了对应的 [std::decay](https://en.cppreference.com/w/cpp/types/decay)
+* 标准库提供了对应的 [std::decay](https://zh.cppreference.com/w/cpp/types/decay)
 
 ### 3.2.5 C++98 中用 typedef 处理
 
@@ -677,7 +677,7 @@ template<typename T, typename U>
 constexpr bool isSame = IsSameT<T, U>::value;
 ```
 
-* 标准库提供了对应的 [std::is_same](https://en.cppreference.com/w/cpp/types/is_same)
+* 标准库提供了对应的 [std::is_same](https://zh.cppreference.com/w/cpp/types/is_same)
 
 ### 3.3.2 true_type 和 false_type
 
@@ -726,7 +726,7 @@ int main() {
 }
 ```
 
-* [<type_traits>](https://en.cppreference.com/w/cpp/header/type_traits) 提供了 [std::true_type 和 std::false_type](https://en.cppreference.com/w/cpp/types/integral_constant)
+* [<type_traits>](https://zh.cppreference.com/w/cpp/header/type_traits) 提供了 [std::true_type 和 std::false_type](https://zh.cppreference.com/w/cpp/types/integral_constant)
 
 ```cpp
 namespace std {
@@ -782,7 +782,7 @@ Array<std::remove_cv_t<std::remove_reference_t<PlusResult<T, U>>>> operator+(
 
 ### 3.4.1 declval
 
-* 标准库提供了 [std::declval](https://en.cppreference.com/w/cpp/utility/declval) 来产生值但不要求构造函数
+* 标准库提供了 [std::declval](https://zh.cppreference.com/w/cpp/utility/declval) 来产生值但不要求构造函数
 
 ```cpp
 namespace std {
@@ -937,7 +937,7 @@ struct A {
 int main() { static_assert(!IsDefaultConstructible<A>); }
 ```
 
-* C++17 提供了 [std::void_t](https://en.cppreference.com/w/cpp/types/void_t)
+* C++17 提供了 [std::void_t](https://zh.cppreference.com/w/cpp/types/void_t)
 
 ## 4.3 为 SFINAE 使用泛型 lambda
 
@@ -1159,7 +1159,7 @@ struct IsConvertibleHelper<FROM, TO, false> {
 };
 ```
 
-* 标准库提供了对应的 [std::is_convertible](https://en.cppreference.com/w/cpp/types/is_convertible)
+* 标准库提供了对应的 [std::is_convertible](https://zh.cppreference.com/w/cpp/types/is_convertible)
 
 # 06 检查成员
 
@@ -1342,7 +1342,7 @@ int main() {
 }
 ```
 
-* [std::void_t](https://en.cppreference.com/w/cpp/types/void_t) 可接受任意数量的模板参数，由此可以一次组合多个表达式
+* [std::void_t](https://zh.cppreference.com/w/cpp/types/void_t) 可接受任意数量的模板参数，由此可以一次组合多个表达式
 
 ```cpp
 #include <type_traits>
@@ -1488,7 +1488,7 @@ template <bool b, typename T, typename U>
 using IfThenElse = typename IfThenElseT<b, T, U>::Type;
 ```
 
-* 标准库提供了对应的 [std::conditional](https://en.cppreference.com/w/cpp/types/conditional)
+* 标准库提供了对应的 [std::conditional](https://zh.cppreference.com/w/cpp/types/conditional)
 * 下面的类型函数能确定某个值的最低级别整型
 
 ```cpp
@@ -1563,7 +1563,7 @@ struct UnsignedT {
 
 ## 7.2 检查不抛出异常的操作
 
-* 可以通过 [noexcept 运算符](https://en.cppreference.com/w/cpp/language/noexcept)直接实现
+* 可以通过 [noexcept 运算符](https://zh.cppreference.com/w/cpp/language/noexcept)直接实现
 
 ```cpp
 #include <type_traits>
@@ -1587,7 +1587,7 @@ int main() {
 }
 ```
 
-* 因此在使用 [noexcept 运算符](https://en.cppreference.com/w/cpp/language/noexcept)前必须确保移动构造函数有效
+* 因此在使用 [noexcept 运算符](https://zh.cppreference.com/w/cpp/language/noexcept)前必须确保移动构造函数有效
 
 ```cpp
 #include <type_traits>
@@ -1610,7 +1610,7 @@ int main() { static_assert(!IsNothrowMoveConstructibleT<A>::value); }
 ```
 
 * 这里 traits 名为 IsNothrowMoveConstructible 而不是 HasNothrowMoveConstructor 是因为，如果不能直接访问移动构造函数则无法检查它是否抛异常，此外对应的类型不能是抽象类（但可以是抽象类的引用或指针）
-* 标准库提供了对应的 [std::is_move_constructible](https://en.cppreference.com/w/cpp/types/is_move_constructible)
+* 标准库提供了对应的 [std::is_move_constructible](https://zh.cppreference.com/w/cpp/types/is_move_constructible)
 
 ## 7.3 简化 traits
 
@@ -1684,7 +1684,7 @@ int main() {
 }
 ```
 
-* 标准库提供了对应的 [std::is_fundamental](https://en.cppreference.com/w/cpp/types/is_fundamental)
+* 标准库提供了对应的 [std::is_fundamental](https://zh.cppreference.com/w/cpp/types/is_fundamental)
 
 ## 8.2 判断函数类型
 
@@ -1708,7 +1708,7 @@ struct is_function<Ret(Args..., ...)> : std::true_type {};
 using MyFuncType = void (int&) const;
 ```
 
-* 标记为 const 的函数类型不是真的 const 类型，无法用 [std::remove_const](https://en.cppreference.com/w/cpp/types/remove_cv) 去除，比如对上述类型需要
+* 标记为 const 的函数类型不是真的 const 类型，无法用 [std::remove_const](https://zh.cppreference.com/w/cpp/types/remove_cv) 去除，比如对上述类型需要
 
 ```cpp
 template <class Ret, class... Args>
@@ -1742,11 +1742,11 @@ template <class Ret, class... Args>
 struct is_function<Ret(Args..., ...) const volatile &&> : std::true_type {};
 ```
 
-* 标准库提供了对应的 [std::is_function](https://en.cppreference.com/w/cpp/types/is_function)
+* 标准库提供了对应的 [std::is_function](https://zh.cppreference.com/w/cpp/types/is_function)
 
 ## 8.3 判断复合类型
 
-* 指针类型：[std::is_pointer](https://en.cppreference.com/w/cpp/types/is_pointer)
+* 指针类型：[std::is_pointer](https://zh.cppreference.com/w/cpp/types/is_pointer)
 
 ```cpp
 #include <type_traits>
@@ -1761,7 +1761,7 @@ template <class T>
 struct is_pointer : is_pointer_helper<typename std::remove_cv<T>::type> {};
 ```
 
-* 左值引用： [std::is_lvalue_reference](https://en.cppreference.com/w/cpp/types/is_lvalue_reference)
+* 左值引用： [std::is_lvalue_reference](https://zh.cppreference.com/w/cpp/types/is_lvalue_reference)
 
 ```cpp
 #include <type_traits>
@@ -1776,7 +1776,7 @@ template <class T>
 constexpr bool is_lvalue_reference_v = is_lvalue_reference<T>::value;
 ```
 
-* 右值引用：[std::is_rvalue_reference](https://en.cppreference.com/w/cpp/types/is_rvalue_reference)
+* 右值引用：[std::is_rvalue_reference](https://zh.cppreference.com/w/cpp/types/is_rvalue_reference)
 
 ```cpp
 #include <type_traits>
@@ -1791,7 +1791,7 @@ template <class T>
 constexpr bool is_rvalue_reference_v = is_rvalue_reference<T>::value;
 ```
 
-* 引用：[std::is_reference](https://en.cppreference.com/w/cpp/types/is_reference)
+* 引用：[std::is_reference](https://zh.cppreference.com/w/cpp/types/is_reference)
 
 ```cpp
 #include <type_traits>
@@ -1809,7 +1809,7 @@ template <class T>
 constexpr bool is_reference_v = is_reference<T>::value;
 ```
 
-* 数组类型：[std::is_array](https://en.cppreference.com/w/cpp/types/is_array)，另外提供了 [std::rank](https://en.cppreference.com/w/cpp/types/rank) 和 [std::extent](https://en.cppreference.com/w/cpp/types/extent) 来允许查询大小
+* 数组类型：[std::is_array](https://zh.cppreference.com/w/cpp/types/is_array)，另外提供了 [std::rank](https://zh.cppreference.com/w/cpp/types/rank) 和 [std::extent](https://zh.cppreference.com/w/cpp/types/extent) 来允许查询大小
 
 ```cpp
 #include <type_traits>
@@ -1827,7 +1827,7 @@ template <class T>
 constexpr bool is_array_v = is_array<T>::value;
 ```
 
-* non-static 成员对象指针或 non-static 成员函数指针： [std::is_member_pointer](https://en.cppreference.com/w/cpp/types/is_member_pointer)
+* non-static 成员对象指针或 non-static 成员函数指针： [std::is_member_pointer](https://zh.cppreference.com/w/cpp/types/is_member_pointer)
 
 ```cpp
 #include <type_traits>
@@ -1846,7 +1846,7 @@ template <class T>
 constexpr bool is_member_pointer_v = is_member_pointer<T>::value;
 ```
 
-* non-static 成员函数指针： [std::is_member_function_pointer](https://en.cppreference.com/w/cpp/types/is_member_function_pointer)
+* non-static 成员函数指针： [std::is_member_function_pointer](https://zh.cppreference.com/w/cpp/types/is_member_function_pointer)
 
 ```cpp
 #include <type_traits>
@@ -1866,7 +1866,7 @@ constexpr bool is_member_function_pointer_v =
     is_member_function_pointer<T>::value;
 ```
 
-* non-static 成员对象指针： [std::is_member_object_pointer](https://en.cppreference.com/w/cpp/types/is_member_object_pointer)
+* non-static 成员对象指针： [std::is_member_object_pointer](https://zh.cppreference.com/w/cpp/types/is_member_object_pointer)
 
 ```cpp
 #include <type_traits>
@@ -1951,7 +1951,7 @@ int main() {
 ```
 
 * lambda表达式是一个匿名类，union 也是一种类类型，因此检查 lambda表达式和 union 也将产生 true
-* 标准库提供了 [std::is_class](https://en.cppreference.com/w/cpp/types/is_class) 和 [std::is_union](https://en.cppreference.com/w/cpp/types/is_union)
+* 标准库提供了 [std::is_class](https://zh.cppreference.com/w/cpp/types/is_class) 和 [std::is_union](https://zh.cppreference.com/w/cpp/types/is_union)
 
 ## 8.5 判断枚举类型
 
@@ -1973,7 +1973,7 @@ template <class T>
 constexpr bool is_enum_v = is_enum<T>::value;
 ```
 
-* 标准库提供了对应的 [std::is_enum](https://en.cppreference.com/w/cpp/types/is_enum)，实际上该 traits 无法用语言内置的方法实现，而是由编译器内部实现
+* 标准库提供了对应的 [std::is_enum](https://zh.cppreference.com/w/cpp/types/is_enum)，实际上该 traits 无法用语言内置的方法实现，而是由编译器内部实现
 
 # 09 Policy traits
 
@@ -2051,13 +2051,13 @@ int main() {
 
 # 10 标准库中的type traits
 
-* C++11中，[type traits](https://en.cppreference.com/w/cpp/header/type_traits) 变成了标准库的内置部分。他们或多或少包含上述所有的类型函数和 type traits，但对于其中一些，比如 trivial operation detection traits 和 [std::is_union](https://en.cppreference.com/w/cpp/types/is_union)，没有已知的 in-language solution，而是由编译器提供内置支持。因此如果需要 type traits，只要可行就推荐使用标准库
+* C++11中，[type traits](https://zh.cppreference.com/w/cpp/header/type_traits) 变成了标准库的内置部分。他们或多或少包含上述所有的类型函数和 type traits，但对于其中一些，比如 trivial operation detection traits 和 [std::is_union](https://zh.cppreference.com/w/cpp/types/is_union)，没有已知的 in-language solution，而是由编译器提供内置支持。因此如果需要 type traits，只要可行就推荐使用标准库
 * 标准库也定义了一些 policy 和 property traits
-  * 类模板 [std::char_traits](https://en.cppreference.com/w/cpp/string/char_traits) 被 string 和 I/O stream 类用作一个 policy traits 参数
-  * 为了更容易给标准迭代器配置算法，提供了一个非常简单的 property traits 模板 [std::iterator_traits](https://en.cppreference.com/w/cpp/iterator/iterator_traits)
-  * 模板 [std::numeric_limits](https://en.cppreference.com/w/cpp/types/numeric_limits) 也能被用作 property traits 模板
-  * 标准容器类型的内存分配器使用了 policy traits 类进行处理，C++98 提供了 [std::allocator](https://en.cppreference.com/w/cpp/memory/allocator) 作为此目的的标准组件，C++11引入了 [std::allocator_traits](https://en.cppreference.com/w/cpp/memory/allocator_traits) 用于改变分配器的行为
-* 改写 [std::char_traits](https://en.cppreference.com/w/cpp/string/char_traits) 即可实现自定义行为的 string，比如让 string 不区分大小写
+  * 类模板 [std::char_traits](https://zh.cppreference.com/w/cpp/string/char_traits) 被 string 和 I/O stream 类用作一个 policy traits 参数
+  * 为了更容易给标准迭代器配置算法，提供了一个非常简单的 property traits 模板 [std::iterator_traits](https://zh.cppreference.com/w/cpp/iterator/iterator_traits)
+  * 模板 [std::numeric_limits](https://zh.cppreference.com/w/cpp/types/numeric_limits) 也能被用作 property traits 模板
+  * 标准容器类型的内存分配器使用了 policy traits 类进行处理，C++98 提供了 [std::allocator](https://zh.cppreference.com/w/cpp/memory/allocator) 作为此目的的标准组件，C++11引入了 [std::allocator_traits](https://zh.cppreference.com/w/cpp/memory/allocator_traits) 用于改变分配器的行为
+* 改写 [std::char_traits](https://zh.cppreference.com/w/cpp/string/char_traits) 即可实现自定义行为的 string，比如让 string 不区分大小写
 
 ```cpp
 #include <cassert>
