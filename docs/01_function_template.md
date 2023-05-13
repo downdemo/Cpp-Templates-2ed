@@ -191,7 +191,7 @@ int main() {
 namespace jc {
 
 template <typename T, typename U>
-auto max(const T& a, const U& b) -> decltype(true ? a : b) {
+auto max(const T& a, const U& b) -> decltype(a > b ? a : b) {
   return a < b ? b : a;
 }
 
