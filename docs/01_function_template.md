@@ -183,6 +183,42 @@ int main() {
 }
 ```
 
+* 推断返回值时, 不能用自身作为推断表达式的一部分,因为此时函数本身还未声明
+``` cpp
+#include <memory>
+#include <iostream>
+
+template <typename T>
+auto mysum(const T& t)
+    -> T
+{
+    return t;
+}
+
+// 正确示范
+// template <typename T, typename... Args> auto mysum(const T& t, Args&&... args)
+//     -> std::common_type_t<T, Args...>
+// // -> int
+// {
+//     return t + mysum(std::forward<Args>(args)...);
+// }
+
+// 错误示范
+template <typename T, typename... Args>
+auto mysum(const T& t, Args&&... args)
+    -> decltype(t + mysum(std::forward<Args>(args)...))
+{
+    return t + mysum(std::forward<Args>(args)...);
+}
+
+auto main()
+    -> int
+{
+    std::cout << mysum(1, 2, 3, 7.7);
+    return 0;
+}
+```
+
 * C++14 允许 auto 作为返回类型，它通过 return 语句推断返回类型，C++11 则需要额外指定尾置返回类型，对于三目运算符，其结果类型为两个操作数类型中更公用的类型，比如 int 和 double 的公用类型是 double
 
 ```cpp
